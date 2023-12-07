@@ -64,13 +64,13 @@ class Contact(APIView):
             '<-noreplay->Mail from the Bloom Living site !',
             email_body,
             message_email,
-            ['aswanthmvr@gmail.com'],
+            ['aswanthmvr@gmail.com',
+             'anwar@uaeaps.com'],
             fail_silently=False
         )
         # return redirect('/')
         return HttpResponse({'msg': 'true'}, status=200)
     def get(self,request):
-        print(request.query_params)
         message_email = settings.EMAIL_HOST_USER
         form_data = request.query_params.dict()
         name = form_data.get('name')
@@ -96,7 +96,8 @@ class Contact(APIView):
             '<-noreplay->Mail from the Bloom Living site !',
             email_body,
             message_email,
-            ['aswanthmvr@gmail.com'],
+            ['aswanthmvr@gmail.com',
+             'anwar@uaeaps.com'],
             fail_silently=False
         )
         return HttpResponse({'msg': 'sent_mail'}, status=200)
