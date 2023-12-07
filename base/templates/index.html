@@ -1495,7 +1495,7 @@
                <script type="text/javascript" src="{% static 'js/element.js' %}"></script>
                <script>
                   function submit_form(type){
-                     debugger;
+                     // debugger;
                      if (type == '1'){
                         var formData = {
                            'name': $('#txtName').val(),
@@ -1516,7 +1516,7 @@
                         };
                      }
                      $.ajax({
-                        type: 'POST',
+                        type: 'GET',
                         url: 'contact/',  
                         data: formData,
                         dataType: 'json',

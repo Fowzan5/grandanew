@@ -72,9 +72,29 @@ class Contact(APIView):
     def get(self,request):
         print(request.query_params)
         message_email = settings.EMAIL_HOST_USER
+        form_data = request.query_params.dict()
+        name = form_data.get('name')
+        email = form_data.get('email')
+        phone = form_data.get('phoneNumber')
+        msg = form_data.get('msg')
+        city = form_data.get('city')
+        message_email = settings.EMAIL_HOST_USER
+        email_body = f"""
+            Hello,
+
+            You have a new site visit request from:
+
+            Name : {name}
+            e-mail : {email}
+            Phone : {phone}
+            City : {city}
+            Query : {msg}
+
+            Thank you!
+            """
         send_mail(
-            '<-noreplay->Mail from the Teaser !',
-            'email address: ',
+            '<-noreplay->Mail from the Bloom Living site !',
+            email_body,
             message_email,
             ['aswanthmvr@gmail.com'],
             fail_silently=False
