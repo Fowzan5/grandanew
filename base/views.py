@@ -64,7 +64,8 @@ class Contact(APIView):
             '<-noreplay->Mail from the Bloom Living site !',
             email_body,
             message_email,
-            ['aswanthmvr@gmail.com',
+            ['aswanthkannara@gmail.com',
+             'zayed.fhd@gmail.com',
              'anwar@uaeaps.com'],
             fail_silently=False
         )
@@ -96,7 +97,8 @@ class Contact(APIView):
             '<-noreplay->Mail from the Bloom Living site !',
             email_body,
             message_email,
-            ['aswanthmvr@gmail.com',
+            ['aswanthkannara@gmail.com',
+             'zayed.fhd@gmail.com',
              'anwar@uaeaps.com'],
             fail_silently=False
         )
