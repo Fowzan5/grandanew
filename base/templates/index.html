@@ -2,11 +2,13 @@
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths">
    <head>
-      <title> Granda </title>
+      <title> Granada </title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <meta name="keywords" content="Reportage Perla 1 ,  The Crest park, Yas Island, Abu dhabi ">
-      <meta name="discription" content="Magic can still happen on a not-far-away island. Perla1 – West YAS, one of the two twin towers located on both wings of YAS Bay, offers you limitless inspiration and a wide horizon of opportunities. Strategically located in Abu Dhabi’s luxury and entertainment hub, right at the waterfront, 190 homes are waiting for their inhabitants to enjoy the beautiful scenery and the magnificent seaview, and experience life at its best with all what the charming YAS has to offer.">
+      <meta name="keywords" content="Reportage granada ,  Zayed
+      City and close to Abu Dhabi">
+      <meta name="discription" content="Magic can still happen on a not-far-away island. granada– Zayed
+      City and close to Abu Dhabi.">
       <!-- <link rel="icon" href="https://www.abu-dhabi-sales-office.com/Projects/Reportage-Group/Perla1-Abu-Dhabi/images/favicon.ico" sizes="32x32"> -->
       <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
       <link href="{% static 'css/lightgallery.css' %}" rel="stylesheet">
@@ -1460,7 +1462,7 @@
    <body class="" style="position: relative; min-height: 100%; top: 0px;">
       <div></div>
       <div>
-         <div>
+         <!-- <div>
             <div data-b24-crm-button-shadow="" class="b24-widget-button-shadow"></div>
             <div style="display: none;">
                <a data-b24-crm-button-widget-blank="" data-b24-crm-button-widget="" class="b24-widget-button-social-item" title="">
@@ -1468,9 +1470,9 @@
                <span data-b24-crm-button-tooltip="" class="b24-widget-button-social-tooltip"></span>
                </a>
             </div>
-         </div>
+         </div> -->
       </div>
-      <form method="post" action="/contact/" id="enq1">
+      <form method="post" action="contact/" id="enq1">
          <div class="aspNetHidden">
             <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="qdoEx1YOf3698B/ThRtpRfUZnwwCr6hLvruvUUz4VZ0F48rvGEtEG/gpVbK5yz1eMWsOuzV50EmMT/i6by/jhYNHbpvVDfU1h9x3dKaOiBtIHE44MrUyEHCP4bPNjZVAZnVh+RcGjs7tyAQ4h0Cr6wXlQ/orDwQOugpLYYwK2ESIOowrSslUNh9ODsSwfDUK">
          </div>
@@ -1493,6 +1495,7 @@
                <script type="text/javascript" src="{% static 'js/element.js' %}"></script>
                <script>
                   function submit_form(type){
+                     debugger;
                      if (type == '1'){
                         var formData = {
                            'name': $('#txtName').val(),
@@ -1514,7 +1517,7 @@
                      }
                      $.ajax({
                         type: 'POST',
-                        url: '/contact/',  
+                        url: 'contact/',  
                         data: formData,
                         dataType: 'json',
                         encode: true,
@@ -1523,7 +1526,7 @@
                            window.location.reload();
                         },
                         error: function(error) {
-                           console.error('Error:', error);
+                           console.error('Error: 2 2', error);
                         
                         }
                      });
@@ -1612,13 +1615,21 @@
                   
                   
                   $(document).on("click", ".navbar-toggler", function () {
-                    debugger;
-                      if ($('.navbar-collapse').is(":visible")) {
-                          $('.navbar-collapse').collapse('hide');
+                     // $('.navbar-collapse').collapse('hide'); 
+                      if ($('.card-header').is(":visible")) {
+                           $('.navbar-collapse').collapse('hide');
+                           $('#mobViewList').hide()
+                           $('.card-header').hide();
                       }
                       else {
-                          $('.navbar-collapse').collapse('show');
+                        //   $('.navbar-collapse').collapse('show');
+                        $('.navbar-collapse').collapse('hide'); 
+                        $('.card-header').show();
+                        $('#mobViewList').show()
                       }
+                     $('#navbarSupportedContent').hide()
+                     $('.navbar-collapse').collapse('hide');
+                      
                   });
                   $(document).on("click", ".close", function () {
                       hidemodal();
@@ -1864,11 +1875,12 @@
                   </div>
                   <div class="bnr-highlight" id="shortBooking">
                      <span class="h-title">BOOKING OPEN</span>
-                     <h1>Reportage Perla 1    <span>The Crest park, Yas Island, Abu dhabi</span></h1>
-                     <h3>By Reportage Group </h3>
+                     <h1>Granada    <span>Zayed
+                        City and close to Abu Dhabi</span></h1>
+                     <h3>By Granada Group </h3>
                      <p class="btn btn-warning text-white font-weight-bold p-1 px-4" data-toggle="modal" data-target="#sitevisit" onclick="fnRequestHeading('I AM INTERESTED');"><span class="d-block  animate__infinite animate__animated animate__swing animate__slow"> 0% Down payment  </span> Pay 1% monthly &amp; Remaining on Handover  <br> Full Sea View Apartments  </p>
                      <ul>
-                        <li><i class="fa fa-angle-right mr-1"></i>Type : <span> 2, 3 and 5 BR Duplex Apartments &amp; 4 BR Townhouses</span></li>
+                        <li><i class="fa fa-angle-right mr-1"></i>Type : <span> 2, 3 and Apartments &amp; 4</span></li>
                         <li><i class="fa fa-angle-right mr-1"></i>Current Status : <span> Under construction  </span></li>
                         <li><i class="fa fa-angle-right mr-1"></i> Handover : <span> SEP 2025  </span></li>
                      </ul>
@@ -1878,13 +1890,13 @@
                </div>
                <div class="col-md-3">
                   <div class="sticky-wrapper" style="height: 968px;"></div>
-                  <div class="se-top enquiry card rounded-0 border-0 shadow sticky is-sticky" data-toggle="sticky-onscroll">
+                  <div class="se-top enquiry card rounded-0 border-0 shadow sticky is-sticky" data-toggle="sticky-onscroll" id="mobViewList">
                      <div class="card-header">
                         <ul>
                            <li>
-                              <a href="callto:+971 52 554 9435">+971 52 554 9435</a> (UAE)
+                              <a href="callto:+971 52 872 2294">+971 52 872 2294</a> (UAE)
                            </li>
-                           <li><a href="https://api.whatsapp.com/send?phone=971%2052%20554%209435&amp;text=Hello%20I%20am%20%20interested%20in%20Reportage%20Perla%201" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;  Click Here to Whatsapp</a></li>
+                           <li><a href="https://api.whatsapp.com/send?phone=971 52 872 2294&amp;text=Hello am interested in granada project" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;  Click Here to Whatsapp</a></li>
                            <li><a href="#" data-toggle="modal" data-target="#sitevisit" onclick="fnRequestHeading('Central Park #Request a site visit');">Request Site Visit</a></li>
                            <li><a href="#" data-toggle="modal" data-target="#sitevisit" onclick="fnRequestHeading('Central Park #Request a meeting');">Request Meeting</a></li>
                         </ul>
@@ -1908,7 +1920,7 @@
                            <span id="spCity"></span>
                         </div>
                         <div class="form-group">
-                           <textarea id="txtMessage" class="form-control" placeholder="Hello I am  interested in Reportage Perla 1  "></textarea>
+                           <textarea id="txtMessage" class="form-control" placeholder="Hello I am  interested in granada"></textarea>
                         </div>
                         <button type="button" onclick="submit_form('1');" class="btn btn-info btn-block">Submit</button>
                      </div>
@@ -1923,30 +1935,16 @@
                      <div class="card-body overvw">
                         <span class="sec-header">Overview</span>
                         <div class="sec-content">
-                           <h2>About Reportage Perla 1  <span>The Crest park, Yas Island, Abu dhabi </span></h2>
-                           <p>Magic can still happen on a 
-                              not-far-away island. Perla1 – West YAS, one of the two twin towers 
-                              located on both wings of YAS Bay, offers you limitless inspiration and a
-                              wide horizon of opportunities. Strategically located in Abu Dhabi’s 
-                              luxury and entertainment hub, right at the waterfront, 190 homes are 
-                              waiting for their inhabitants to enjoy the beautiful scenery and the 
-                              magnificent seaview, and experience life at its best with all what the 
-                              charming YAS has to offer.
-                           </p>
-                           <p>This high-rise building is perfectly 
-                              tailored to satisfy all needs and fit a wide range of residents seeking 
-                              luxury and high-end living, offering Duplex units and Triplex 
-                              Townhouses, with equal share of sunlight and seaview, where home is just
-                              another exciting experience to look up to. 
-                           </p>
-                           <p>Get a taste of premium hospitality at
-                              Hilton Hotel and Viceroy Hotel. Don’t compromise a vibrant nightlife! 
-                              Spend the best of moments at MAD. Shopping is always special in Yas Mall
-                              - the largest shopping center in Abu Dhabi, where international 
-                              restaurants and shops are located.
+                           <h2>About Granada  <span>Abu Dhabi's first low-rise premium community 
+                              living apartment buildings </span></h2>
+                           
+                           <p>
+                              Welcome to "Granada", Abu Dhabi's first low-rise premium community 
+                              living apartment buildings within the fully integrated and all-inclusive community, Bloom Living.
+                              Inspired by the aesthetic of traditional Mediterranean homes and elevated by the comfort of modern living, Granada will feature the first superior low-rise apartment buildings in Abu Dhabi centered around community living. The first phase of Granada encompasses a variety of residential apartment units across eight luxury four-story buildings, Granada will comprise units from spacious studios, to upscale one, two-, and three bedroom-apartments, each with generous living space, sweeping balconies, and access to top-class amenities within the community. Apartments at Granada will feature modern and elegant finishings with open floor plans and high ceilings. Each apartment is also designed to feature large windows, creating a bright and airy atmosphere, filled with natural light. This premium apartment community is fully equipped to cater to all types of residents and all age groups, making it a truemulti-generational destination. Residents have direct access to fully facilitated community centers consisting of fitness spaces, cafés, lounge areas, kids play areas, swimming pools and shaded playgrounds. The communal areasat Granada are designed to be welcoming with detailed façades, open gardens and spacious courtyards, creating luxurious leisure spaces. Those living within Granada can benefit from a wide range of facilities available at Bloom Living, just within a short walking distance. Residents can explore the beauty of nature at Bloom Living's multiple uninterruptedly interconnected parks, and they can also enjoy their time at the community's main Clubhouse which provides easy access to pools, sports, and recreational facilities,
                            </p>
                            <div class="brochure">
-                              <a href="#" data-toggle="modal" data-target="#sitevisit" class="btn btn-info" onclick="fnRequestHeading('About Reportage Perla 1  #Download Brochure');">
+                              <a href="#" data-toggle="modal" data-target="#sitevisit" class="btn btn-info" onclick="fnRequestHeading('About granada #Download Brochure');">
                               <i class="fa fa-download"></i>&nbsp; Request Brochure 
                               </a>
                            </div>
@@ -1965,62 +1963,62 @@
                                           <strong>Type </strong>
                                        </td>
                                        <td>
-                                          <strong>Area</strong>
+                                          <strong>GSA Range</strong>
                                        </td>
                                        <td>
-                                          <strong>Price</strong>
+                                          <strong>Starting Price</strong>
                                        </td>
                                     </tr>
                                     <tr>
-                                       <td> 2 BR Duplex Apartments 
+                                       <td> Studio
                                        </td>
-                                       <td> 1009 to 1744 Sq.ft.
+                                       <td> 402 - 625.
                                        </td>
-                                       <td>AED 1.57 MN  
+                                       <td>591,000
                                           <br>
                                           <a href="#" data-toggle="modal" data-target="#sitevisit" class="btn btn-warning btn-sm tempcss2" onclick="fnRequestHeading('Send me Costing Details');">View Payment Plan
                                           </a>
                                        </td>
                                     </tr>
                                     <tr>
-                                       <td>  3 BR Duplex Apartments 
+                                       <td>  1 Bed
                                        </td>
-                                       <td> 1246 to 3519 Sq.ft.
+                                       <td> 625 - 1,107
                                        </td>
-                                       <td> AED 1.94 MN  
+                                       <td> 909,000
                                           <br>
                                           <a href="#" data-toggle="modal" data-target="#sitevisit" class="btn btn-warning btn-sm tempcss2" onclick="fnRequestHeading('Send me Costing Details');">View Payment Plan
                                           </a>
                                        </td>
                                     </tr>
                                     <tr>
-                                       <td> 4 BR Duplex Apartments 
+                                       <td> 2 Bed
                                        </td>
-                                       <td> 1574 to 3405 Sq.ft.
+                                       <td> 1,082 – 1,738
                                        </td>
-                                       <td> AED 2.42 MN  
+                                       <td> 1,360,000
                                           <br>
                                           <a href="#" data-toggle="modal" data-target="#sitevisit" class="btn btn-warning btn-sm tempcss2" onclick="fnRequestHeading('Send me Costing Details');">View Payment Plan
                                           </a>
                                        </td>
                                     </tr>
                                     <tr>
-                                       <td> 4 BR Townhouses
+                                       <td> 2+ Bed
                                        </td>
-                                       <td> 2420 to 2487  Sq.ft.
+                                       <td> 1,472 – 2,134
                                        </td>
-                                       <td> AED 3.94 MN  
+                                       <td> 1,670,000
                                           <br>
                                           <a href="#" data-toggle="modal" data-target="#sitevisit" class="btn btn-warning btn-sm tempcss2" onclick="fnRequestHeading('Send me Costing Details');">View Payment Plan
                                           </a>
                                        </td>
                                     </tr>
                                     <tr>
-                                       <td> 5 BR Duplex Apartments
+                                       <td> 3 Bed
                                        </td>
-                                       <td> 2300 Sq.ft.
+                                       <td> 1,805 – 2,899
                                        </td>
-                                       <td> AED 2.80 MN  
+                                       <td> 1,959,000
                                           <br>
                                           <a href="#" data-toggle="modal" data-target="#sitevisit" class="btn btn-warning btn-sm tempcss2" onclick="fnRequestHeading('Send me Costing Details');">View Payment Plan
                                           </a>
@@ -2069,7 +2067,7 @@
                                     <span class="btn btn-default at-property-btn" role="button">Enquire Now</span>
                                     <img src="{% static 'images/image-133.jpg' %}" alt="Costing Details" class="img-fluid">
                                  </div>
-                                 <span class="btn btn-warning btn-block tempcss"> Duplex Apartment </span>
+                                 <span class="btn btn-warning btn-block tempcss"> Apartment </span>
                               </a>
                            </div>
                            <div class="col-md-3 cls">
@@ -2089,7 +2087,7 @@
                                     <span class="btn btn-default at-property-btn" role="button">Enquire Now</span>
                                     <img src="{% static 'images/image-131.jpg' %}" alt="Costing Details" class="img-fluid">
                                  </div>
-                                 <span class="btn btn-warning btn-block tempcss"> 4 BR Townhouses </span>
+                                 <span class="btn btn-warning btn-block tempcss"> Dining </span>
                               </a>
                            </div>
                            <div class="col-md-3 cls">
@@ -2099,7 +2097,7 @@
                                     <span class="btn btn-default at-property-btn" role="button">Enquire Now</span>
                                     <img src="{% static 'images/image-128.jpg' %}" alt="Costing Details" class="img-fluid">
                                  </div>
-                                 <span class="btn btn-warning btn-block tempcss"> 5 BR Duplex Apartment </span>
+                                 <span class="btn btn-warning btn-block tempcss"> Apartment </span>
                               </a>
                            </div>
                         </div>
@@ -2156,43 +2154,43 @@
                                     </div>
                                     <div class="owl-item" style="width: 1254px; margin-right: 15px;">
                                        <div class="item">
-                                          <a href="https://www.abu-dhabi-sales-office.com/Projects/Reportage-Group/Perla1-Abu-Dhabi/images/gallery7.jpg">
+                                          <a href="{% static 'images/image-152.jpg' %}">
                                           <img src="{% static 'images/image-152.jpg' %}" alt="Gallery"></a>
                                        </div>
                                     </div>
                                     <div class="owl-item" style="width: 1254px; margin-right: 15px;">
                                        <div class="item">
-                                          <a href="https://www.abu-dhabi-sales-office.com/Projects/Reportage-Group/Perla1-Abu-Dhabi/images/gallery8.jpg">
+                                          <a href="{% static 'images/image-156.jpg' %}">
                                           <img src="{% static 'images/image-156.jpg' %}" alt="Gallery"></a>
                                        </div>
                                     </div>
                                     <div class="owl-item" style="width: 1254px; margin-right: 15px;">
                                        <div class="item">
-                                          <a href="https://www.abu-dhabi-sales-office.com/Projects/Reportage-Group/Perla1-Abu-Dhabi/images/gallery9.jpg">
+                                          <a href="{% static 'images/image-153.jpg' %}">
                                           <img src="{% static 'images/image-153.jpg' %}" alt="Gallery"></a>
                                        </div>
                                     </div>
                                     <div class="owl-item" style="width: 1254px; margin-right: 15px;">
                                        <div class="item">
-                                          <a href="https://www.abu-dhabi-sales-office.com/Projects/Reportage-Group/Perla1-Abu-Dhabi/images/gallery10.jpg">
+                                          <a href="{% static 'images/image-159.jpg' %}">
                                           <img src="{% static 'images/image-159.jpg' %}" alt="Gallery"></a>
                                        </div>
                                     </div>
                                     <div class="owl-item" style="width: 1254px; margin-right: 15px;">
                                        <div class="item">
-                                          <a href="https://www.abu-dhabi-sales-office.com/Projects/Reportage-Group/Perla1-Abu-Dhabi/images/gallery11.jpg">
+                                          <a href="{% static 'images/image-156.jpg' %}">
                                           <img src="{% static 'images/image-156.jpg' %}" alt="Gallery"></a>
                                        </div>
                                     </div>
                                     <div class="owl-item" style="width: 1254px; margin-right: 15px;">
                                        <div class="item">
-                                          <a href="https://www.abu-dhabi-sales-office.com/Projects/Reportage-Group/Perla1-Abu-Dhabi/images/gallery12.jpg">
+                                          <a href="{% static 'images/image-157.jpg' %}">
                                           <img src="{% static 'images/image-157.jpg' %}" alt="Gallery"></a>
                                        </div>
                                     </div>
                                     <div class="owl-item cloned" style="width: 1254px; margin-right: 15px;">
                                        <div class="item">
-                                          <a href="https://www.abu-dhabi-sales-office.com/Projects/Reportage-Group/Perla1-Abu-Dhabi/images/gallery1.jpg">
+                                          <a href="{% static 'images/image-158.jpg' %}">
                                           <img src="{% static 'images/image-158.jpg' %}" alt="Gallery"></a>
                                        </div>
                                     </div>
@@ -2260,7 +2258,7 @@
                         <div class="sec-content">
                            <div class="row">
                               <div class="col-md-8">
-                                 <a href="https://www.abu-dhabi-sales-office.com/Projects/Reportage-Group/Perla1-Abu-Dhabi/images/LocationMap.jpg">
+                                 <a href="{% static 'images/image-011.jpg' %}">
                                     <div class="overlay">
                                        <div class="at-property-overlayer"></div>
                                        <span class="btn btn-default at-property-btn" role="button">View Location Map</span>
@@ -2269,18 +2267,22 @@
                                  </a>
                               </div>
                               <div class="col-md-4">
-                                 <h5 class="mt-4">Connectivity</h5>
+                                 <!-- <h5 class="mt-4">Bloom Living is located in Zayed
+                                    City and close to Abu Dhabi
+                                    airport.</h5>
                                  <ul class="list">
                                     <li> 05 Mins Walk - Etihad Arena </li>
-                                    <li> 10 Mins Walk - Yas Beach </li>
-                                    <li> 10 Mins Walk - Yas Water World </li>
-                                    <li> 25 Mins Drive - Louvre Museum </li>
+                                    <li> 10 Mins Walk - Yas Beach </li> -->
+                                    <li> Bloom Living is located in Zayed
+                                       City and close to Abu Dhabi
+                                       airport. </li>
+                                    <!-- <li> 25 Mins Drive - Louvre Museum </li>
                                     <li> 30 Mins Drive - Al Reem Island  </li>
                                     <li> 05 Mins Walk - Ferrari World </li>
                                     <li>10 Mins Walk - Yas Mall </li>
                                     <li> 10 Mins Walk - Warner Bros </li>
                                     <li> 25 Mins Drive - Al Saadiyat Island</li>
-                                    <li>45 Mins Drive - Dubai</li>
+                                    <li>45 Mins Drive - Dubai</li> -->
                                  </ul>
                               </div>
                            </div>
@@ -2340,13 +2342,13 @@
                </p>
             </div>
          </div>
-         <div class="touch-pont">
+         <!-- <div class="touch-pont">
             <ul>
-               <li class="call"><a href="tel:+971 52 554 9435"><i class="fa fa-phone"></i>Call</a></li>
+               <li class="call"><a href="tel:+971 52 872 2294"><i class="fa fa-phone"></i>Call</a></li>
                <li class="mail"><a href="#" data-toggle="modal" data-target="#sitevisit" onclick="fnRequestHeading('I AM INTERESTED');"><i class="fa fa-envelope"></i>Enquire</a></li>
-               <li class="wapp"><a href="https://api.whatsapp.com/send?phone=971%2052%20554%209435"><i class="fa fa-whatsapp"></i>WhatsApp</a></li>
+               <li class="wapp"><a href="https://api.whatsapp.com/send?phone=971 52 872 2294"><i class="fa fa-whatsapp"></i>WhatsApp</a></li>
             </ul>
-         </div>
+         </div> -->
          <input id="hdnVisitType" value="" type="hidden">
          <input id="hdnProject" value="" type="hidden">
          <input id="hdnMessageType" value="" type="hidden">
@@ -2450,7 +2452,7 @@
                               <span id="spContactNomdl" class="text-danger"></span>
                            </div>
                            <div class="form-group">
-                              <textarea id="txtMessagemdl" class="form-control" cols="5" placeholder="Hello I am  interested in Reportage Perla 1  "></textarea>
+                              <textarea id="txtMessagemdl" class="form-control" cols="5" placeholder="Query"></textarea>
                            </div>
                            <div class="form-group">
                               <button type="button" id="btnSubmit" class="btn btn-info btn-block" onclick="submit_form('2')">Submit</button>
@@ -2979,7 +2981,7 @@
                                     tr
                                  </option>
                               </select>
-                              <a href="https://www.bitrix24.com/abuse/?b24_form_id=5&amp;b24_address=https%3A%2F%2Fpropjunction.bitrix24.com&amp;b24_form_address=https%3A%2F%2Fwww.abu-dhabi-sales-office.com%2FProjects%2FReportage-Group%2FPerla1-Abu-Dhabi%2FHome%2Fen%3Fgclid%3DCj0KCQjwpc-oBhCGARIsAH6ote_hgV82L5ltLfrn-xKr8NSEdZ-A1nk-2pVLKWYn7LoHQDX_rWvVpGEaAldwEALw_wcB" target="_blank" rel="nofollow" class="b24-form-sign-abuse-link">
+                              <!-- <a href="https://www.bitrix24.com/abuse/?b24_form_id=5&amp;b24_address=https%3A%2F%2Fpropjunction.bitrix24.com&amp;b24_form_address=https%3A%2F%2Fwww.abu-dhabi-sales-office.com%2FProjects%2FReportage-Group%2FPerla1-Abu-Dhabi%2FHome%2Fen%3Fgclid%3DCj0KCQjwpc-oBhCGARIsAH6ote_hgV82L5ltLfrn-xKr8NSEdZ-A1nk-2pVLKWYn7LoHQDX_rWvVpGEaAldwEALw_wcB" target="_blank" rel="nofollow" class="b24-form-sign-abuse-link"> -->
                               Report abuse
                               </a> <span title="" class="b24-form-sign-abuse-help"></span> 
                               <div class="b24-form-sign-info"><span class="b24-form-sign-text">Powered by</span> <span class="b24-form-sign-bx">Bitrix</span> <span class="b24-form-sign-24">24</span></div>

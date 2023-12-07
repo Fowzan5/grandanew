@@ -3950,7 +3950,7 @@ textarea {
 }
 
 @media(max-width:800px) {
-    .slider_banner_info_w3ls h4; {
+    .slider_banner_info_w3ls h4 {
         font-size: 3em;
         padding: 0 1em;
         letter-spacing: 3px;
@@ -3969,7 +3969,7 @@ textarea {
 
 
 @media(max-width:768px) {
-    .contact; {
+    .contact {
         padding: 3em 0;
     }
 

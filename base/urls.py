@@ -5,5 +5,5 @@ from base import views
 
 urlpatterns = [
     path('',views.index_page, name="index"),
-    path('contact/', Contact.as_view(), name='home')
+    path('contact/', views.Contact.as_view(), name='contact')
 ]

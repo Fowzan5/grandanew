@@ -4,6 +4,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from rest_framework.response import Response
 from .models import UploadedImage
+from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
@@ -33,8 +34,10 @@ class EmailAPI(APIView):
             # html_message=html_,
             fail_silently=False,
         )
-        return Response({'msg': sent_mail}, status=200)
+        return HttpResponse({'msg': sent_mail}, status=200)
     
+
+# @csrf_exempt
 class Contact(APIView):
     def post(self, request):
         form_data = request.data.dict()
@@ -65,7 +68,7 @@ class Contact(APIView):
             fail_silently=False
         )
         # return redirect('/')
-        return Response({'msg': 'true'}, status=200)
+        return HttpResponse({'msg': 'true'}, status=200)
     def get(self,request):
         print(request.query_params)
         message_email = settings.EMAIL_HOST_USER
@@ -76,4 +79,4 @@ class Contact(APIView):
             ['aswanthmvr@gmail.com'],
             fail_silently=False
         )
-        return Response({'msg': 'sent_mail'}, status=200)
+        return HttpResponse({'msg': 'sent_mail'}, status=200)
