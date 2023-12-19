@@ -13,10 +13,11 @@ def index_page(request):
     alll_pic = UploadedImage.objects.all()
     list_of_lists = [alll_pic[i:i+3] 
                     for i in range(0, len(alll_pic), 3)]
-    print(list_of_lists)
 
     return render(request,'index.html', {"pics":list_of_lists})
 
+def rp_index(request):
+    return render(request,'rp_index.html')
 
 class EmailAPI(APIView):
     def get(self, request):
