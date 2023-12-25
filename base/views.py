@@ -99,7 +99,8 @@ class Contact(APIView):
             email_body,
             message_email,
             ['aswanthkannara@gmail.com',
-             ],
+             'zayed.fhd@gmail.com',
+             'anwar@uaeaps.com'],
             fail_silently=False
         )
         return HttpResponse({'msg': 'sent_mail'}, status=200)
