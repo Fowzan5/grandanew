@@ -1477,42 +1477,143 @@
                   </script> -->
                <script type="text/javascript" src="{% static 'js/element.js' %}"></script>
                <script>
-                  function submit_form(type){
-                     // debugger;
-                     if (type == '1'){
-                        var formData = {
-                           'name': $('#txtName').val(),
-                           'email': $('#txtEmail').val(),
-                           'phoneNumber': $('#txtContactNo').val(),
-                           'msg':$('#txtMessage').val(),
-                           'city':$('#txtCity').val()
-                           // Add other form fields as needed
-                        };
-                     }else {
-                        var formData = {
-                              'name': $('#txtNamemdl').val(),
-                              'email': $('#txtEmailmdl').val(),
-                              'phoneNumber': $('#txtContactNomdl').val(),
-                              'msg':$('#txtMessagemdl').val(),
-                              'city':$('#txtCitymdl').val()
-                              // Add other form fields as needed
-                        };
+
+                  function validateMobileNumber(number,erp) {
+                     var mobileNumber = document.getElementById(number).value;
+                     var mobileNumberPattern = /^[0-9]{10}$/; // Adjust the pattern based on your requirements
+                     if (mobileNumberPattern.test(mobileNumber)) {
+                        return true;
+                     } else {
+                        $('#'+erp).text('invalid phone number');
+                        return false;
                      }
-                     $.ajax({
-                        type: 'GET',
-                        url: 'contact/',  
-                        data: formData,
-                        dataType: 'json',
-                        encode: true,
-                        success: function(response) {
-                           $('.close').click(); 
-                           window.location.reload();
-                        },
-                        error: function(error) {
-                           console.error('Error: 2 2', error);
-                        
+                  }
+                  function validateEmail(mail,error_mail) {
+                     var email = document.getElementById(mail).value;
+                     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                     if (emailPattern.test(email)) {
+                        return true;
+                     } else {
+                        $('#'+error_mail).text('invalid email address');
+                        return false;
+                     }
+                  }
+
+                  function emptyCheck(arrg){
+                     var cont = "please fill the "
+                     if (arrg == 'txtContactNo'){
+                        if (validateMobileNumber('txtContactNo','errorMsgLbl') == false){
+                           return false;
                         }
-                     });
+                     }
+                     if (arrg == 'txtEmail'){
+                        if (validateEmail('txtEmail','errorMsgLbl') == false){
+                           return false;
+                        }
+                     }
+                     if ($('#'+arrg).val() == ''){
+                        if (arrg == "txtMessage"){
+                           $('#errorMsgLbl').text('please fill the Query');
+                           return false;
+                        }
+                        else{
+                           cont+= $('#'+arrg).attr('placeholder');
+                           $('#errorMsgLbl').text(cont);
+                           return false;
+                        }
+                     }else{
+                        return true;
+                     }
+                  }
+
+                  function emptyCheck_two(arrg){
+                     var cont = "please fill the "
+                     if (arrg == 'txtContactNomdl'){
+                        if (validateMobileNumber('txtContactNomdl','errorMsgLbl_two') == false){
+                           $('#error_msg_two').show();
+                           return false;
+                        }
+                     }
+                     if (arrg == 'txtEmailmdl'){
+                        if (validateEmail('txtEmailmdl','errorMsgLbl_two') == false){
+                           $('#error_msg_two').show();
+                           return false;
+                        }
+                     }
+                     if ($('#'+arrg).val() == ''){
+                        if (arrg == "txtMessagemdl"){
+                           $('#errorMsgLbl_two').text('please fill the Query');
+                           $('#error_msg_two').show();
+                           return false;
+                        }
+                        else{
+                           cont+= $('#'+arrg).attr('placeholder');
+                           $('#errorMsgLbl_two').text(cont);
+                           $('#error_msg_two').show();
+                           return false;
+                        }
+                     }else{
+                        return true;
+                     }
+                  }
+
+                  function submit_form(type){
+                     var isValid = false;
+                     if (type == '1'){
+                        if (emptyCheck('txtName') &&
+                            emptyCheck('txtContactNo') &&
+                            emptyCheck('txtEmail') &&
+                            emptyCheck('txtCity') &&
+                            emptyCheck('txtMessage') == true){
+                           var formData = {
+                              'name': $('#txtName').val(),
+                              'email': $('#txtEmail').val(),
+                              'phoneNumber': $('#txtContactNo').val(),
+                              'msg':$('#txtMessage').val(),
+                              'city':$('#txtCity').val()
+                              // Add other form fields as needed
+                           };
+                           isValid = true
+                        }
+                     }else {
+                        if (emptyCheck_two('txtNamemdl') &&
+                            emptyCheck_two('txtEmailmdl') &&
+                            emptyCheck_two('txtCitymdl') &&
+                            emptyCheck_two('txtContactNomdl') &&
+                            emptyCheck_two('txtMessagemdl') == true){
+                           var formData = {
+                                 'name': $('#txtNamemdl').val(),
+                                 'email': $('#txtEmailmdl').val(),
+                                 'phoneNumber': $('#txtContactNomdl').val(),
+                                 'msg':$('#txtMessagemdl').val(),
+                                 'city':$('#txtCitymdl').val()
+                                 // Add other form fields as needed
+                           };
+                           isValid = true;
+                           $('#errorMsgLbl_two').text('');
+                           $('.enqml').val('');
+
+                        }
+                     }
+                     if (isValid == true){
+                        $('#error_msg1').hide();
+                        $('.enq').val('');
+                        $.ajax({
+                           type: 'GET',
+                           url: 'contact/',  
+                           data: formData,
+                           dataType: 'json',
+                           encode: true,
+                           success: function(response) {
+                              $('.close').click(); 
+                              window.location.reload();
+                           },
+                           error: function(error) {
+                              console.error('Error: 2 2  -', error);
+                           
+                           }
+                        });
+                     }
                   }
                   var slidx = 0;
                   // $(document).ready(function () {
@@ -1890,23 +1991,26 @@
                      <div class="card-body">
                         <h3>Register your Interest</h3>
                         <div class="form-group">
-                           <input type="text" class="form-control" id="txtName" placeholder="Name *" onblur="fnnameqc();">
+                           <input type="text" class="form-control enq" id="txtName" placeholder="Name *" onblur="fnnameqc();">
                            <span id="spName"></span>
                         </div>
                         <div class="form-group">
-                           <input type="text" class="form-control" id="txtContactNo" placeholder="Mobile no. with country code.*" onblur="fnphoneqc();">
+                           <input type="text" class="form-control enq" id="txtContactNo" placeholder="Mobile no. with country code.*" onblur="fnphoneqc();">
                            <span id="spContactno"></span>
                         </div>
                         <div class="form-group">
-                           <input type="text" class="form-control" id="txtEmail" placeholder="Email Id *" onblur="fnemailqc();">
+                           <input type="text" class="form-control enq" id="txtEmail" placeholder="Email Id *" onblur="fnemailqc();">
                            <span id="spEmail"></span>
                         </div>
                         <div class="form-group">
-                           <input type="text" class="form-control" id="txtCity" placeholder="City" onblur="fncityqc();">
+                           <input type="text" class="form-control enq" id="txtCity" placeholder="City" onblur="fncityqc();">
                            <span id="spCity"></span>
                         </div>
                         <div class="form-group">
-                           <textarea id="txtMessage" class="form-control" placeholder="Hello I am  interested in Royal Park"></textarea>
+                           <textarea id="txtMessage" class="form-control enq" placeholder="Hello I am  interested in Royal Park"></textarea>
+                        </div>
+                        <div class="form-group" id="error_msg1" style="text-align: center;">
+                           <label for="" id="errorMsgLbl" class="text-danger" > </label>
                         </div>
                         <button type="button" onclick="submit_form('1');" class="btn btn-info btn-block">Submit</button>
                      </div>
@@ -2533,29 +2637,34 @@
                         <form>
                         <div class="col-md-6">
                            <div class="form-group">
-                              <input type="text" id="txtNamemdl" placeholder="Name *" class="form-control" onblur="fnnamemdlqc();">
+                              <input type="text" id="txtNamemdl" placeholder="Name *" class="form-control enqml" onblur="fnnamemdlqc();">
                               <span id="spNamemdl" class="text-danger"></span>
                            </div>
                            <div class="form-group">
-                              <input type="text" id="txtEmailmdl" placeholder="Email Id *" class="form-control" onblur="fnemailmdlqc();">
+                              <input type="text" id="txtEmailmdl" placeholder="Email Id *" class="form-control enqml" onblur="fnemailmdlqc();">
                               <span id="spEmailmdl" class="text-danger"></span>
                            </div>
                            <div class="form-group">
-                              <input type="text" id="txtCitymdl" placeholder="City" class="form-control" onblur="fncitymdlqc();">
+                              <input type="text" id="txtCitymdl" placeholder="City" class="form-control enqml" onblur="fncitymdlqc();">
                               <span id="spCitymdl" class="text-danger"></span>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
-                              <input type="text" id="txtContactNomdl" placeholder="Mobile no. with country code.*" class="form-control" onblur="fnphonemdlqc();">
+                              <input type="text" id="txtContactNomdl" placeholder="Mobile no. with country code.*" class="form-control enqml" onblur="fnphonemdlqc();">
                               <span id="spContactNomdl" class="text-danger"></span>
                            </div>
                            <div class="form-group">
-                              <textarea id="txtMessagemdl" class="form-control" cols="5" placeholder="Query"></textarea>
+                              <textarea id="txtMessagemdl" class="form-control enqml" cols="5" placeholder="Query"></textarea>
                            </div>
                            <div class="form-group">
                               <button type="button" id="btnSubmit" class="btn btn-info btn-block" onclick="submit_form('2')">Submit</button>
                               <!-- onclick="return saveprojmdlqc(); -->
+                           </div>
+                        </div>
+                        <div class="col-md-12">
+                           <div class="form-group" id="error_msg_two" style="text-align: center;">
+                              <label for="" id="errorMsgLbl_two" class="text-danger" >  </label>
                            </div>
                         </div>
                      </form>
