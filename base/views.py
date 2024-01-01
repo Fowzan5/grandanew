@@ -75,6 +75,7 @@ class Contact(APIView):
     def get(self,request):
         message_email = settings.EMAIL_HOST_USER
         form_data = request.query_params.dict()
+        req_from = form_data.get('from')
         name = form_data.get('name')
         email = form_data.get('email')
         phone = form_data.get('phoneNumber')
@@ -92,15 +93,19 @@ class Contact(APIView):
             City : {city}
             Query : {msg}
 
-            Thank you!
+            Source : {req_from}  website
+
+            
+            Thank you !
             """
         send_mail(
-            '<-noreplay->Mail from the Bloom Living site !',
+            '<-noreplay->Mail from the ' + req_from +' site !',
             email_body,
             message_email,
             ['aswanthkannara@gmail.com',
              'zayed.fhd@gmail.com',
-             'anwar@uaeaps.com'],
+             'anwar@uaeaps.com'
+            ],
             fail_silently=False
         )
         return HttpResponse({'msg': 'sent_mail'}, status=200)
