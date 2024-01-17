@@ -37,16 +37,16 @@ class EmailAPI(APIView):
         )
         return HttpResponse({'msg': sent_mail}, status=200)
     
-
 # @csrf_exempt
 class Contact(APIView):
     def post(self, request):
-        form_data = request.data.dict()
+        form_data = request.data
         name = form_data.get('name')
         email = form_data.get('email')
         phone = form_data.get('phoneNumber')
         msg = form_data.get('msg')
         city = form_data.get('city')
+        req_from = form_data.get('from')
         message_email = settings.EMAIL_HOST_USER
         email_body = f"""
             Hello,
@@ -59,18 +59,21 @@ class Contact(APIView):
             City : {city}
             Query : {msg}
 
-            Thank you!
+            Source : {req_from}  website
+
+            
+            Thank you !
             """
         send_mail(
-            '<-noreplay->Mail from the Bloom Living site !',
+            '<-noreplay->Mail from the ' + req_from +' site !',
             email_body,
             message_email,
             ['aswanthkannara@gmail.com',
              'zayed.fhd@gmail.com',
-             'anwar@uaeaps.com'],
+             'anwar@uaeaps.com'
+             ],
             fail_silently=False
         )
-        # return redirect('/')
         return HttpResponse({'msg': 'true'}, status=200)
     def get(self,request):
         message_email = settings.EMAIL_HOST_USER
@@ -109,3 +112,11 @@ class Contact(APIView):
             fail_silently=False
         )
         return HttpResponse({'msg': 'sent_mail'}, status=200)
+    
+def thanks(request):
+    data = {}
+    if request.path == "/thanks/rp/":
+        data['site'] = 'royal_park'
+    else:
+        data['site'] = 'granada'
+    return render(request, 'thanks_page.html',{'data':data})

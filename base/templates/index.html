@@ -1565,6 +1565,11 @@
                         return true;
                      }
                   }
+                  function  modifyState() { 
+                        let stateObj = { id: "100" }; 
+                        window.history.replaceState(stateObj, 
+                                    "request_form", "/request_form"); 
+                  } 
 
                   function submit_form(type){
                      var isValid = false;
@@ -1609,18 +1614,19 @@
                         $('#error_msg1').hide();
                         $('.enq').val('');
                         $.ajax({
-                           type: 'GET',
-                           url: 'contact/',  
-                           data: formData,
-                           dataType: 'json',
+                           type: 'POST',
+                           url: 'contact/',
+                           data: JSON.stringify(formData),
+                           dataType: 'html',
+                           contentType: 'application/json',
                            encode: true,
                            success: function(response) {
-                              $('.close').click(); 
-                              window.location.reload();
+                              $('.close').click();
+                              window.location.href = "thanks/";
                            },
                            error: function(error) {
-                              console.error('Error: 2 2 aswa', error);
-                           
+                              window.location.href = "thanks";
+                              console.error('Error: 2 2 ', error);
                            }
                         });
                      }
@@ -1991,7 +1997,9 @@
                               <a href="callto:+971 50 829 2776">+971 50 829 2776</a> (UAE)
                            </li>
                            <li><a href="https://api.whatsapp.com/send?phone=971 50 829 2776&amp;text=Hello am interested in Granada project" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;  Click Here to Whatsapp</a></li>
-                           <li><a href="#" data-toggle="modal" data-target="#sitevisit" onclick="fnRequestHeading('Central Park #Request a site visit');">Request Site Visit</a></li>
+                           <!-- <li><a href="#" data-toggle="modal" data-target="#sitevisit" onclick="fnRequestHeading('Central Park #Request a site visit');">Request Site Visit</a></li> -->
+                           <li><a href="#" data-toggle="modal" data-target="#sitevisit" onclick="modifyState()">Request Site Visit</a></li>
+
                            <li><a href="#" data-toggle="modal" data-target="#sitevisit" onclick="fnRequestHeading('Central Park #Request a meeting');">Request Meeting</a></li>
                         </ul>
                      </div>

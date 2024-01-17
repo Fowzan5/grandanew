@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .tick-icon {
+            color: #28a745;
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tick-icon">
+        <i class="fas fa-check-circle"></i>
+    </div>
+    <h1>Thank You!</h1>
+	
+    <p>Your message has been received. We will get back you soon.</p>
+	<p>
+		{% if data.site == 'royal_park' %}
+		<a href="/royal_park">
+		{% else %}
+			<a href="/">
+		{% endif %}
+			click here to go back
+		</a> 
+	</p>
+</body>
+</html>
